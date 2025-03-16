@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grua Freirina</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="imagenes/logo2.jpg" alt="Logo de Grua Express">
+        </div>
+        <h1>Gruas Freirina</h1>
+        <nav class="desktop-menu">
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="hamburger-menu">
+            <button id="menu-toggle">☰</button>
+        </div>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<div class="carrusel">
+    <div class="carrusel-images" id="carrusel-images">
+        <img src="imagenes/grua4.jpg" alt="Imagen 1">
+        <img src="imagenes/grua5.jpg" alt="Imagen 2">
+        <img src="imagenes/grua6.jpg" alt="Imagen 3">
+    </div>
+    <div class="overlay">
+        <h2>Tu solución en transporte de vehículos</h2>
+        <div class="button-container">
+            <button class="action-button" onclick="window.location.href='tel:+56953406851'">
+                Llamar (+56953406851)
+            </button>
+            <button class="action-button" onclick="window.location.href='https://wa.me/56953406851'">
+                WhatsApp
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="section" id="servicios">
+    <h3>Nuestros Servicios</h3>
+    <div class="services">
+        <div class="service">
+            <img src="imagenes/gua1.jpg" alt="Servicio 1">
+            <h4>Remolque de Vehículos</h4>
+            <p>Ofrecemos remolque seguro y rápido para todo tipo de vehículos.</p>
+        </div>
+        <div class="service">
+            <img src="imagenes/grua2.jpg" alt="Servicio 2">
+            <h4>Asistencia en Carretera</h4>
+            <p>Ayuda inmediata para resolver emergencias en carretera.</p>
+        </div>
+        <div class="service">
+            <img src="imagenes/grua3.jpg" alt="Servicio 3">
+            <h4>Traslado de Maquinaria</h4>
+            <p>Transporte especializado para maquinaria pesada.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contacto">
+    <h3>Contáctanos</h3>
+    <form action="#" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Grua Freirina. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // Script para el menú móvil (hamburguesa)
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Script para el carrusel infinito
+    const carruselImages = document.getElementById("carrusel-images");
+    const images = carruselImages.querySelectorAll("img");
+
+    // Duplicar imágenes para efecto infinito
+    images.forEach((img) => {
+        const clone = img.cloneNode(true);
+        carruselImages.appendChild(clone);
+    });
+
+    let currentIndex = 0; // Índice actual
+    const imageWidth = images[0].clientWidth; // Ancho de una imagen
+    const totalImages = images.length; // Número de imágenes originales
+    const speed = 5000; // Tiempo entre cada cambio (en milisegundos)
+
+    function moveToNextImage() {
+        currentIndex++;
+        carruselImages.style.transition = "transform 1s ease-in-out"; // Duración de la transición
+        carruselImages.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+
+        // Si llegamos al final de las imágenes originales, reiniciamos
+        if (currentIndex >= totalImages) {
+            setTimeout(() => {
+                carruselImages.style.transition = "none"; // Desactiva la transición para el reinicio
+                currentIndex = 0;
+                carruselImages.style.transform = `translateX(0)`;
+            }, 1000); // Tiempo que coincide con la duración de la transición
+        }
+    }
+
+    // Cambiar de imagen automáticamente cada X tiempo
+    setInterval(moveToNextImage, speed);
+</script>
+
+</body>
+</html>

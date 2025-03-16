@@ -1,0 +1,260 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #003366;
+    color: #fff;
+    padding: 10px 5%;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.desktop-menu {
+    display: flex;
+    gap: 15px;
+}
+
+.desktop-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.desktop-menu a:hover {
+    text-decoration: underline;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+}
+
+.hamburger-menu button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Estilo para el menú móvil */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #003366;
+    position: absolute;
+    top: 85px;
+    right: 10px;
+    width: 200px;
+    z-index: 10;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu a {
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu a:hover {
+    background-color: #0055aa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .mobile-menu {
+        right: 10px;
+        width: 200px;
+    }
+}
+
+/* Carrusel Styles */
+.carrusel {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.carrusel-images {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: max-content;
+    transition: transform 1s ease-in-out;
+}
+
+.carrusel-images img {
+    width: 100vw; /* Cada imagen ocupa todo el ancho de la ventana */
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay para texto y botones */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Asegura que esté por encima del carrusel */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Fondo oscuro transparente */
+}
+
+.overlay h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px; /* Espacio entre el título y los botones */
+}
+
+/* Botones */
+.button-container {
+    display: flex;
+    gap: 15px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #0055aa;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: #003366;
+    transform: scale(1.05);
+}
+
+.action-button:active {
+    background-color: #001a33;
+}
+
+
+/* Section Styles */
+.section {
+    padding: 40px 10%;
+    text-align: center;
+}
+
+.section h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.service {
+    width: 30%;
+    margin: 10px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+.service img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.contact {
+    background-color: #f1f1f1;
+    padding: 40px 10%;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    background-color: #003366;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background-color: #0055aa;
+}
+
+footer {
+    background-color: #003366;
+    color: #fff;
+    padding: 20px 10%;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
